@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Alfonso Vacaflores]]></title>
+  <link href="http://avacaflores.github.io/atom.xml" rel="self"/>
+  <link href="http://avacaflores.github.io/"/>
+  <updated>2014-05-09T18:32:50-04:00</updated>
+  <id>http://avacaflores.github.io/</id>
+  <author>
+    <name><![CDATA[Alfonso Vacaflores]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
