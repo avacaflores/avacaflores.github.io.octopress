@@ -4,7 +4,7 @@
   <title><![CDATA[Por puro gusto]]></title>
   <link href="http://avacaflores.github.io/atom.xml" rel="self"/>
   <link href="http://avacaflores.github.io/"/>
-  <updated>2014-05-10T09:33:39-04:00</updated>
+  <updated>2014-05-10T16:49:12-04:00</updated>
   <id>http://avacaflores.github.io/</id>
   <author>
     <name><![CDATA[Alfonso Vacaflores]]></name>
@@ -18,8 +18,8 @@
     <link href="http://avacaflores.github.io/blog/2014/05/09/sobre-este-blog/"/>
     <updated>2014-05-09T18:42:44-04:00</updated>
     <id>http://avacaflores.github.io/blog/2014/05/09/sobre-este-blog</id>
-    <content type="html"><![CDATA[<p><img class="left" src="../images/blogging.jpg" width="400">
-Después de muchos años y de algunos intentos fallidos he decido iniciar este blog dedicado a la tecnología. Como su título lo dice, este blog es <strong>&ldquo;Por puro gusto&rdquo;</strong> a esta pasión que la he reencontrado después de muchos años. Como buen <a href="http://es.wikipedia.org/wiki/Geek">geek</a> esto de escribir no es lo mío pero estoy confiado que podré plasmar algo de mi conocimiento en estos posts.</p>
+    <content type="html"><![CDATA[<p><img class="left" src="http://avacaflores.github.io/images/blog/blogging.jpg" width="400">
+Después de muchos años y de algunos intentos fallidos he decido iniciar este blog dedicado a la tecnología. Como su título lo dice, este blog es <strong>&ldquo;Por puro gusto&rdquo;</strong> a esta pasión que la he reencontrado después de muchos años. Como buen <a href="http://es.wikipedia.org/wiki/Geek">geek</a> esto de escribir no es lo mío pero estoy confiado que podré plasmar algo de mi conocimiento en estos posts. [wiki: test]test</p>
 
 <p>Mi principal objetivo es el de dejar de usar &ldquo;notepad&rdquo; para tomar notas de cosas interesantes que aprendo, de links a sitios que tienen contenidos que me sirve e intentaré poner todo esa información en este sitio. De paso si esta información es de provecho para alguien más me dará mucho gusto poder aportar en algo.</p>
 
