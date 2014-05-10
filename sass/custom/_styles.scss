@@ -7,6 +7,14 @@ html {
 
 nav {
   border-radius: 8px 8px 0 0;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+  //box-shadow: 1em 0.3em 0.9em black;
 }
 
+.image-avatar {
+  border-radius: 50px;
+  border: 2px solid black;
+  float:left;
+  margin:10px;
+}
 
