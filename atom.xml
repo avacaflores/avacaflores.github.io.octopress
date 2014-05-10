@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Alfonso Vacaflores]]></title>
+  <title><![CDATA[Por puro gusto]]></title>
   <link href="http://avacaflores.github.io/atom.xml" rel="self"/>
   <link href="http://avacaflores.github.io/"/>
-  <updated>2014-05-09T18:32:50-04:00</updated>
+  <updated>2014-05-10T00:39:54-04:00</updated>
   <id>http://avacaflores.github.io/</id>
   <author>
     <name><![CDATA[Alfonso Vacaflores]]></name>
@@ -12,5 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sobre Este Blog]]></title>
+    <link href="http://avacaflores.github.io/blog/2014/05/09/sobre-este-blog/"/>
+    <updated>2014-05-09T18:42:44-04:00</updated>
+    <id>http://avacaflores.github.io/blog/2014/05/09/sobre-este-blog</id>
+    <content type="html"><![CDATA[<p>Después de muchos años y de algunos intentos fallidos he decido iniciar este blog dedicado a la tecnología. Como su título lo dice este blog es <strong>&ldquo;Por puro gusto&rdquo;</strong> a esta pasión que la he reencontrado después de muchos años. Como buen <a href="http://es.wikipedia.org/wiki/Geek">geek</a> esto de escribir no es lo mío pero estoy confiado que podré plasmar algo de mi conocimiento en estos posts.</p>
+
+<p>Mi principal objetivo es el de dejar de usar &ldquo;notepad&rdquo; para tomar notas de cosas interesantes que aprendo o links a sitios que tienen contenido que me sirve, intentare poner todo esa información en este sitio. De paso si esta información es de provecho para alguien más me dará mucho gusto poder aportado en algo.</p>
+
+<p>Como ya se habrán dado cuenta en estas pocas lineas, este blog será escrito en <a href="http://es.wikipedia.org/wiki/Spanglish">spanglish</a>, no es lo más me gusta pero el mundo de la tecnología esta dominado por el inglés y en un 99% de las veces el intentar traducir términos que se usan comúnmente en inglés resulta en un texto que es totalmente extraño y por ende este deja de ser útil.</p>
+
+<p>Bienvenidos al blog y espero lo disfruten como yo.</p>
+]]></content>
+  </entry>
   
 </feed>
