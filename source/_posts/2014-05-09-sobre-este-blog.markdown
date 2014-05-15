@@ -8,7 +8,7 @@ footer: true
 categories:
 ---
 {% img left /images/blog/blogging.jpg 400 %}
-Después de muchos años y de algunos intentos fallidos he decido iniciar este blog dedicado a la tecnología. Como su título lo dice, este blog es **"Por puro gusto"** a esta pasión que la he reencontrado después de muchos años. Como buen [geek](http://es.wikipedia.org/wiki/Geek) esto de escribir no es lo mío pero estoy confiado que podré plasmar algo de mi conocimiento en estos posts. [wiki: test]test
+Después de muchos años y de algunos intentos fallidos he decido iniciar este blog dedicado a la tecnología. Como su título lo dice, este blog es **"Por puro gusto"** a esta pasión que la he reencontrado después de muchos años. Como buen [geek](http://es.wikipedia.org/wiki/Geek) esto de escribir no es lo mío pero estoy confiado que podré plasmar algo de mi conocimiento en estos posts.
 
 Mi principal objetivo es el de dejar de usar "notepad" para tomar notas de cosas interesantes que aprendo, de links a sitios que tienen contenidos que me sirve e intentaré poner todo esa información en este sitio. De paso si esta información es de provecho para alguien más me dará mucho gusto poder aportar en algo.
 
