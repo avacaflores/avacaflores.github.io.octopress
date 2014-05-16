@@ -8,7 +8,7 @@ footer: false
 
 Soy un boliviano amante  de la tecnología, creo firmemente que cuando tu trabajo y tu hobby son lo mismo, disfrutaras lo que haces cada día y sentirás que dejaste de trabajar.
 
-He pasado por varias etapas en vida tecnológica, pueden encontrar mi Curriculum Vitae para los detalles mas formales y para todos esos otros detalles curiosos esta la siguiente sección.
+He pasado por varias etapas en vida tecnológica, pueden encontrar mi [Curriculum Vitae](/files/CV_avacaflores_EN.pdf) para los detalles mas formales y para todos esos otros detalles curiosos esta la siguiente sección.
 
 ##Mi historia con la tecnología
 
