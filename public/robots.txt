@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://avacaflores.github.io/sitemap.xml 
