@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Archivos YAML Para Guardar Parámetros en Rails - Por puro gusto</title>
+  <title>Archivos YAML para guardar parámetros en Rails - Por puro gusto</title>
   <meta name="author" content="Alfonso Vacaflores">
 
   
@@ -86,7 +86,7 @@
   
   <header>
     
-      <h1 class="entry-title">Archivos YAML Para Guardar Parámetros en Rails</h1>
+      <h1 class="entry-title">Archivos YAML para guardar parámetros en Rails</h1>
     
     
       <p class="meta">
@@ -109,7 +109,7 @@
   </header>
 
 
-<div class="entry-content"><p>Toda aplicación tiene parámetros de configuración que conviene que estén parametrizados para evitar repetición en el código y para tener la facilidad de cambiar los mismos en uso lugar. Lo que en la herga de Rails diriamos: para estar <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY (Don&rsquo;t Repeat Yourself)</a></p>
+<div class="entry-content"><p>Toda aplicación tiene parámetros de configuración que conviene que estén parametrizados para evitar repetición en el código y para tener la facilidad de cambiar los mismos en un solo lugar. Lo que en la herga de Rails diríamos: para estar <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY (Don&rsquo;t Repeat Yourself)</a></p>
 
 <p>Si bien en una aplicación en Rails se podrían crear variables globales la mejor opción a futuro es la de crear un modelo que guarde toda esta información en la base de datos. Sin embargo esto implicaría crear todas las pantallas y controladores de administración que muchas veces no justifica porque estos valores no cambian con frecuencia.</p>
 
@@ -137,7 +137,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>La primer linea lee el archivo <code>config.yml</code> y lo convierte en un <strong>hash</strong> que será guardado en la variable <code>CONFIG</code>. La segunda línea habilitará este <strong>hash</strong> para que pueda ser llamado utilizando símbolos como veremos a continuación.</p>
+<p>La primer línea lee el archivo <code>config.yml</code> y lo convierte en un <strong>hash</strong> que será guardado en la variable <code>CONFIG</code>. La segunda línea habilitará este <strong>hash</strong> para que pueda ser llamado utilizando símbolos como veremos a continuación.</p>
 
 <p>Desde una vista podremos llamar a nuestros parámetros de la siguiente manera:</p>
 
@@ -150,7 +150,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Esta es una manera muy sencilla y limpia de usar archivos <strong>YAML</strong> para guardar parámetros de configuración, la cual puede ser extendida para muchos otros usos. Para mas información de la sintaxis de los archivos YAML visitar el sitio offical <a href="http://www.yaml.org">http://www.yaml.org</a> o la página de Wikipedia <a href="http://en.wikipedia.org/wiki/YAML">YAML</a>.</p>
+<p>Esta es una manera muy sencilla y limpia de usar archivos <strong>YAML</strong> para guardar parámetros de configuración, la cual puede ser extendida para muchos otros usos. Para más información de la sintaxis de los archivos YAML visitar el sitio offical <a href="http://www.yaml.org">http://www.yaml.org</a> o la página de Wikipedia <a href="http://en.wikipedia.org/wiki/YAML">YAML</a>.</p>
 </div>
 
 
@@ -203,6 +203,8 @@
         <a class="basic-alignment left" href="/blog/2014/05/09/sobre-este-blog/" title="Previous Post: Sobre este blog">&laquo; Sobre este blog</a>
       
       
+        <a class="basic-alignment right" href="/blog/2014/05/16/hacking-octopress/" title="Next Post: Hacking Octopress">Hacking Octopress &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -221,11 +223,15 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/05/13/archivos-yaml-en-rails/">Archivos YAML Para Guardar Parámetros en Rails</a>
+        <a href="/blog/2014/05/16/hacking-octopress/">Hacking Octopress</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/05/09/sobre-este-blog/">Sobre Este Blog</a>
+        <a href="/blog/2014/05/13/archivos-yaml-en-rails/">Archivos YAML para guardar parámetros en Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/09/sobre-este-blog/">Sobre este blog</a>
       </li>
     
   </ul>
