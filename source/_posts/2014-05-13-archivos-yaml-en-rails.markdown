@@ -8,7 +8,7 @@ footer: true
 categories: [Rails,YAML]
 ---
 
-Toda aplicación tiene parámetros de configuración que conviene que estén parametrizados para evitar repetición en el código y para tener la facilidad de cambiar los mismos en uso lugar. Lo que en la herga de Rails diriamos: para estar [DRY (Don't Repeat Yourself)](http://en.wikipedia.org/wiki/Don't_repeat_yourself)
+Toda aplicación tiene parámetros de configuración que conviene que estén parametrizados para evitar repetición en el código y para tener la facilidad de cambiar los mismos en un solo lugar. Lo que en la herga de Rails diríamos: para estar [DRY (Don't Repeat Yourself)](http://en.wikipedia.org/wiki/Don't_repeat_yourself)
 
 Si bien en una aplicación en Rails se podrían crear variables globales la mejor opción a futuro es la de crear un modelo que guarde toda esta información en la base de datos. Sin embargo esto implicaría crear todas las pantallas y controladores de administración que muchas veces no justifica porque estos valores no cambian con frecuencia.
 
@@ -29,7 +29,7 @@ CONFIG = YAML.load(File.read(File.expand_path('../config.yml', __FILE__)))
 CONFIG.symbolize_keys!
 {% endcodeblock %}
 
-La primer linea lee el archivo `config.yml` y lo convierte en un **hash** que será guardado en la variable `CONFIG`. La segunda línea habilitará este **hash** para que pueda ser llamado utilizando símbolos como veremos a continuación.
+La primer línea lee el archivo `config.yml` y lo convierte en un **hash** que será guardado en la variable `CONFIG`. La segunda línea habilitará este **hash** para que pueda ser llamado utilizando símbolos como veremos a continuación.
 
 Desde una vista podremos llamar a nuestros parámetros de la siguiente manera: 
 
@@ -39,4 +39,4 @@ Desde una vista podremos llamar a nuestros parámetros de la siguiente manera:
 <%= CONFIG[:store_email] %>
 {% endcodeblock %}
 
-Esta es una manera muy sencilla y limpia de usar archivos **YAML** para guardar parámetros de configuración, la cual puede ser extendida para muchos otros usos. Para mas información de la sintaxis de los archivos YAML visitar el sitio offical [http://www.yaml.org](http://www.yaml.org) o la página de Wikipedia [YAML](http://en.wikipedia.org/wiki/YAML).
+Esta es una manera muy sencilla y limpia de usar archivos **YAML** para guardar parámetros de configuración, la cual puede ser extendida para muchos otros usos. Para más información de la sintaxis de los archivos YAML visitar el sitio offical [http://www.yaml.org](http://www.yaml.org) o la página de Wikipedia [YAML](http://en.wikipedia.org/wiki/YAML).
