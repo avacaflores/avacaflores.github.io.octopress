@@ -4,11 +4,11 @@
   <title><![CDATA[Category: Ruby | Por puro gusto]]></title>
   <link href="http://avacaflores.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://avacaflores.github.io/"/>
-  <updated>2014-05-16T23:46:00-04:00</updated>
+  <updated>2014-05-18T22:59:16-04:00</updated>
   <id>http://avacaflores.github.io/</id>
   <author>
     <name><![CDATA[Alfonso Vacaflores]]></name>
-    
+    <email><![CDATA[avacaflores@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -165,7 +165,7 @@
 
 <p>Después de este procedimiento todas las fechas de los posts estarán disponibles en español. Así mismo es posible cambiar el formato de presentación en el archivo <code>/_config.yml</code> por ejemplo utilizando la siguiente plantilla:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>/_config.yml </span></figcaption>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>&lsquo;/_config.yml&rsquo; </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">date_format</span><span class="p-Indicator">:</span> <span class="nl">&amp;ldquo</span><span class="l-Scalar-Plain">;%d %B %Y&amp;rdquo;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
@@ -180,6 +180,10 @@
 </span><span class='line'><span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">&quot;{{ post.date | datetime | date_to_xmlschema }}&quot;</span> <span class="na">pubdate</span><span class="nt">&gt;</span>{{ post.date | date: <span class="ni">&amp;ldquo;</span><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&#39;month&#39;</span><span class="nt">&gt;</span>%m<span class="nt">&lt;/span&gt;</span>/<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&#39;day&#39;</span><span class="nt">&gt;</span>%d<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&#39;year&#39;</span><span class="nt">&gt;</span>%Y<span class="nt">&lt;/span&gt;</span><span class="ni">&amp;rdquo;</span>}}<span class="nt">&lt;/time&gt;</span>
 </span><span class='line'><span class="ni">&amp;hellip;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Y estos son los resultados de estas modificaciones:</p>
+
+<p><img src="/images/blog/blog.png" width="700"></p>
 ]]></content>
   </entry>
   

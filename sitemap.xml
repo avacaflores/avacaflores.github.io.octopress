@@ -2,35 +2,39 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://avacaflores.github.io/blog/2014/05/09/sobre-este-blog/</loc>
-        <lastmod>2014-05-15T23:27:52-04:00</lastmod>
+        <lastmod>2014-05-18T22:00:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/blog/2014/05/13/archivos-yaml-en-rails/</loc>
-        <lastmod>2014-05-16T20:16:31-04:00</lastmod>
+        <lastmod>2014-05-18T20:47:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/blog/2014/05/16/hacking-octopress/</loc>
-        <lastmod>2014-05-16T23:44:56-04:00</lastmod>
+        <lastmod>2014-05-18T21:57:14-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/about/</loc>
-        <lastmod>2014-05-16T22:47:34-04:00</lastmod>
+        <lastmod>2014-05-18T20:47:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/blog/archives/</loc>
-        <lastmod>2014-05-16T23:44:56-04:00</lastmod>
+        <lastmod>2014-05-18T22:00:03-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://avacaflores.github.io/blog/categories/</loc>
+        <lastmod>2014-05-18T20:47:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/</loc>
-        <lastmod>2014-05-16T23:44:56-04:00</lastmod>
+        <lastmod>2014-05-18T22:00:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/projects/</loc>
-        <lastmod>2014-05-16T22:47:34-04:00</lastmod>
+        <lastmod>2014-05-18T20:47:11-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/resources/</loc>
-        <lastmod>2014-05-16T22:47:34-04:00</lastmod>
+        <lastmod>2014-05-18T22:00:27-04:00</lastmod>
     </url>
     <url>
         <loc>http://avacaflores.github.io/robots.txt</loc>

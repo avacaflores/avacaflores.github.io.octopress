@@ -4,11 +4,11 @@
   <title><![CDATA[Por puro gusto]]></title>
   <link href="http://avacaflores.github.io/atom.xml" rel="self"/>
   <link href="http://avacaflores.github.io/"/>
-  <updated>2014-05-16T23:46:00-04:00</updated>
+  <updated>2014-05-18T22:59:16-04:00</updated>
   <id>http://avacaflores.github.io/</id>
   <author>
     <name><![CDATA[Alfonso Vacaflores]]></name>
-    
+    <email><![CDATA[avacaflores@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -156,7 +156,7 @@
 
 <p>Después de este procedimiento todas las fechas de los posts estarán disponibles en español. Así mismo es posible cambiar el formato de presentación en el archivo <code>/_config.yml</code> por ejemplo utilizando la siguiente plantilla:</p>
 
-<figure class='code'><figcaption><span>/_config.yml </span></figcaption>
+<figure class='code'><figcaption><span>&#8216;/_config.yml&#8217; </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">date_format</span><span class="p-Indicator">:</span> <span class="s">&quot;%d</span><span class="nv"> </span><span class="s">%B</span><span class="nv"> </span><span class="s">%Y&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -174,7 +174,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>Y estos son los resultados de estas modificaciones:</p>
 
+<p><img src="http://avacaflores.github.io/images/blog/blog.png" width="700"></p>
 ]]></content>
   </entry>
   
