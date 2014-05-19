@@ -1,8 +1,10 @@
 <hgroup>
-      <img class="image-avatar" src="/images/avatar.png" width=100px/>
-
-      <h1 class="title"><a href="{{ root_url }}/">{{ site.title }}</a></h1>
-      {% if site.subtitle %}
-      <h2 class="title">{{ site.subtitle }}</h2>
-      {% endif %}
+  <h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
+{% if site.description %}
+<section class="site-description">
+  <p>
+    {{ site.description }}
+  </p>
+</section>
+{% endif %}
 </hgroup>

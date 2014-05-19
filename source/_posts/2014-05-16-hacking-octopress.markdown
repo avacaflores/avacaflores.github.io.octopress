@@ -92,7 +92,7 @@ Y reemplazarla por la siguiente función:
 
 Después de este procedimiento todas las fechas de los posts estarán disponibles en español. Así mismo es posible cambiar el formato de presentación en el archivo `/_config.yml` por ejemplo utilizando la siguiente plantilla:
 
-{% codeblock /_config.yml %}
+{% codeblock '/_config.yml' %}
 date_format: "%d %B %Y"
 {% endcodeblock %}
 
@@ -105,4 +105,9 @@ Esta implementación tiene una falencia que se hace evidente en el la página de
 ...
 {% endraw %}
 {% endcodeblock %}
+
+Y estos son los resultados de estas modificaciones:
+
+{% img /images/blog/blog.png 700 %}  
+
 

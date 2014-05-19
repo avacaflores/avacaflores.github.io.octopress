@@ -1,13 +1,13 @@
 ---
 layout: page
 title: "Recursos"
-date: 2014-05-10 15:43
+date: 2014-05-16 23:12:02 -0400
 comments: false
-sharing: fasle
+sharing: false
 footer: false
 ---
 
-Esta seccion sera dinámica, listaré mis mejores recursos (libros, videos, podcasts, blogs, etc). Todo estará clasificado por temas.
+Esta seccion será dinámica, listaré mis mejores recursos (libros, videos, podcasts, blogs, etc). Todo estará clasificado por temas.
 
 ##Tecnología en General
 
@@ -28,7 +28,7 @@ http://www.amazon.com/Objective-C-Programming-Ranch-Guide-Guides/dp/032194206X)
 - [iOS Programming - The Big Nerd Ranch Guide (Joe Conway/Aaron Hillegass)](
 http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321942051)  
   
-##Ruby y Rails
+##Ruby & Ruby on Rails
 
 **Videos**  
 - [Railscasts (Ryan Bates)](http://www.railscasts.com)  
