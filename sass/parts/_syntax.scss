@@ -48,12 +48,12 @@ article{
 		font-family: $font-mono;
 	}
 	code{
-		font-size: 0.9em;
+		font-size: 0.8em; //0.9em
 		padding: 1px 3px;
 		margin: 0 3px;
 	}
 	pre{
-		font-size: 1 / 0.9em;
+		font-size: 0.8em; //1 / 0.9em;
 		line-height: 1.5;
 		margin-top: 10px;
 		padding: 5px 15px;
@@ -72,7 +72,7 @@ figure.code{
 	margin-top: 10px;
 	padding: 5px 15px;
 	figcaption{
-		font-size: 0.9em;
+		font-size: 0.8em; // 0.9em;
 		position: relative;
 		span{
 			margin: -5px -15px 0;

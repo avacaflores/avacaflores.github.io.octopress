@@ -115,4 +115,5 @@ module Jekyll
       super_to_liquid.deep_merge(liquid_date_attributes)
     end
   end
+  
 end
