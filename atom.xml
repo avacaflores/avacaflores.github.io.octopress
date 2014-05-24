@@ -4,7 +4,7 @@
   <title><![CDATA[Por puro gusto]]></title>
   <link href="http://avacaflores.github.io/atom.xml" rel="self"/>
   <link href="http://avacaflores.github.io/"/>
-  <updated>2014-05-19T22:23:03-04:00</updated>
+  <updated>2014-05-23T21:40:13-04:00</updated>
   <id>http://avacaflores.github.io/</id>
   <author>
     <name><![CDATA[Alfonso Vacaflores]]></name>
@@ -12,6 +12,110 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Scopes in Rails 4]]></title>
+    <link href="http://avacaflores.github.io/blog/2014/05/23/scopes-en-rails-4/"/>
+    <updated>2014-05-23T00:12:02-04:00</updated>
+    <id>http://avacaflores.github.io/blog/2014/05/23/scopes-en-rails-4</id>
+    <content type="html"><![CDATA[<p>Rails es un framework muy flexible, existen muchas tareas que se las pueden hacer de diferentes maneras, sin embargo esta flexibilidad se ve empañada por la confusión que existe en internet. Cada version de Rails incorpora nuevos comandos y retira otros, también se puede ver que la sintaxis de los comandos ha ido cambiando en cada versión.</p>
+
+<p>En este post me quiero referir específicamente a los <strong>scopes</strong> y su sintaxis en Rails 4, describiré la sintaxis que me parece mas clara y sencilla.</p>
+
+<p>Primeramente definamos los modelos de ejemplo</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:type</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Type</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">has_many_</span> <span class="ss">:products</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Así mismo, asumamos que cada modelo cuenta con un campo <code>title</code></p>
+
+<h2>scope estático</h2>
+
+<p>Serán aquellos que actúan sobre un modelo y que tienen una condición fija, bajo estas premisas, estos podrían ser scopes definidos en los modelo <code>Product</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scope</span> <span class="ss">:fixedtitle</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">&#39;computer&#39;</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Podemos llamar el scope con el siguiente comando <code>Product.fixedtitle</code> que producira el seguinete resultado:</p>
+
+<pre><code>SELECT "products".* 
+FROM "products"  
+WHERE "products"."title" = 'computer'
+</code></pre>
+
+<p>Otro ejemplo de scope estático podría ser:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scope</span> <span class="ss">:titlecontains</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="n">where</span><span class="p">(</span><span class="s2">&quot;title LIKE &#39;%p%&#39;&quot;</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Que lo llamariamos con el siguiente comando <code>Product.titlecontains</code> y producira el siguiente resultado:</p>
+
+<pre><code>SELECT "products".* 
+FROM "products"  
+WHERE (title LIKE '%p%')
+</code></pre>
+
+<p>Incluso podríamos usar ambos scopes en la misma consulta <code>Product.fixedtitle.titlecontains</code></p>
+
+<pre><code>SELECT "products".* 
+FROM "products"  
+WHERE "products"."title" = 'computer' AND (title LIKE '%a%')
+</code></pre>
+
+<h2>scope variable</h2>
+
+<p>En este caso lo que esperamos es que el scope reciba una variable dinámicamente, para lograrlo debemos usar <code>|variable|</code> para recibir el valor:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scope</span> <span class="ss">:variabletitle</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">term</span><span class="o">|</span> <span class="n">where</span><span class="p">(</span><span class="s2">&quot;title LIKE &#39;%</span><span class="si">#{</span><span class="n">term</span><span class="si">}</span><span class="s2">%&#39;&quot;</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Deberemos pasar el valor en la llamada al scope de la siguiente manera <code>Product.variabletitle('compu')</code> que producira el siguiente resultado:</p>
+
+<pre><code>SELECT "products".* 
+FROM "products"  
+WHERE (title LIKE '%compu%')
+</code></pre>
+
+<h2>scope variable con dos modelos</h2>
+
+<p>Por ultimo, el caso mas complejo que me tomo varias horas de investigación y pruebas y que me empujo a escribir este post. Como podrán imaginar necesitamos usaremos un scope variable y también usaremos <strong>joins</strong> para enlazar al segundo modelo</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scope</span> <span class="ss">:bytype</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">type_name</span><span class="o">|</span> <span class="n">joins</span><span class="p">(</span><span class="ss">:type</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="err">‘</span><span class="n">type</span><span class="o">.</span><span class="n">title</span><span class="err">’</span> <span class="o">=&gt;</span> <span class="n">type_name</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Llamaremos a este scope con <code>Product.bytype('electronics')</code> y producira el siguiente resultado:</p>
+
+<pre><code>SELECT "products".* 
+FROM "products" INNER JOIN "types" ON "types"."id" = "products"."type_id" 
+WHERE "types"."title" = 'electronics'
+</code></pre>
+
+<p><strong>Scopes</strong> en Rails es un tema bastante amplio sobre el cual hay mucho material (el cual no necesariamente es vigente ni). Esta propuesta es sumamente simple pero 100% funcional y puede ser extendida siguiendo el mismo patron.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hacking Octopress]]></title>
