@@ -50,3 +50,12 @@ footer: false
 - Applicación movil que demuestra animaciones 2D basadas en SprikeKit  
 - Desarrollado en Objective-C/Xcope/SpriteKit  
 - Enlace al [AppStore](https://itunes.apple.com/us/app/sample-code-for-sprite-kit/id717483322?mt=8) 
+
+<hr>
+#Electrónica
+###Arduino
+{% img /images/static/Arduino.png 300 %}   
+- Robot Autónomo   
+- Arduino Uno    
+- Arduino motor shield     
+
