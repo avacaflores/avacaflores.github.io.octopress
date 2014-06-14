@@ -9,7 +9,7 @@
 	<meta name="author" content="Alfonso Vacaflores">
 
 	
-	<meta name="description" content="23 Mayo 2014 Rails Scopes in Rails 4 Rails es un framework muy flexible, existen muchas tareas que se las pueden hacer de diferentes maneras, sin &hellip;">
+	<meta name="description" content="12 Junio 2014 Swift plist en Swift La presentación del nuevo leguaje de programación Swift a despertado a un grupo muy grande programadores y no &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -120,6 +120,102 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-12T07:12:02-04:00" data-updated="true" itemprop="datePublished">12 Junio 2014</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/swift/'>Swift</a>
+
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2014/06/12/plist-en-swift/" itemprop="url">plist en Swift</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>La presentación del nuevo leguaje de programación Swift a despertado a un grupo muy grande programadores y no programadores, todos ansiosos por experimentar con el nuevo juguete.</p>
+
+<p>La primera idea que uno tiene es que al ser un leguaje nuevo debemos limitarnos solamente a sus comandos, funciones, etc, sin embargo en la práctica eso no es posible. Hay una infinidad de librerías en Cocoa que usan clases de Objective-C que son fundamentales para la programación en iOS y OS X, tal es el caso de las librerías necesarias para leer un plist.</p>
+
+<p>El siguiente ejemplo muestra la manera mas elegante que encontré para realizar la tarea de leer un plist el cual esta compuesto por un arreglo de diccionarios.</p>
+
+<h2>El plist</h2>
+
+<p><img src="/images/blog/plist.png">  <br/>
+El plist contiene una estructura básica de un <code>array</code> y n <code>dictionary</code></p>
+
+<h2>Abrir el plist</h2>
+
+<p>Primeramente necesitamos definir la ruta y posteriormente gargar el archivo en memória</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>let path = NSBundle.mainBundle().pathForResource("List", ofType: "plist")
+</span><span class='line'>let array = NSArray(contentsOfFile: path)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A partir de esto podemos consultar el contenido del <code>array</code> usando <code>println(array)</code> y obtendremos el resultado en la consola</p>
+
+<pre><code>(
+        {
+        Nombre = Hugo;
+        Telefono = 2123268000;
+    },
+        {
+        Nombre = Esteban;
+        Telefono = 2125648765;
+    },
+        {
+        Nombre = Sergio;
+        Telefono = 2127547654;
+    }
+)
+</code></pre>
+
+<p>Hasta ahora todo parece muy facil e intunitivo, sin embargo obtener los valores de cada diccionario individualmente es la parte que necesita de intrucciones especiales</p>
+
+<h2>Iterar el array</h2>
+
+<p>Para realizar esta tarea es necesario realizar el <strong>casting</strong> a <code>AnyObject</code> y luego hacer un nuevo <strong>casting</strong> de cada elemento a <code>NSDictionay</code> de la siguiente manera:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>for user:AnyObject in array {
+</span><span class='line'>  
+</span><span class='line'>  let dict:NSDictionary = user as NSDictionary
+</span><span class='line'>  
+</span><span class='line'>  println(dict["Nombre"])
+</span><span class='line'>  println(dict["Telefono"])               
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<p>A partir de aquí podremos obtener los valores que estan contenidos en cada diccionario dentro del plist.</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">

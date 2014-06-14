@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Swift | Por puro gusto]]></title>
+  <link href="http://avacaflores.github.io/blog/categories/swift/atom.xml" rel="self"/>
+  <link href="http://avacaflores.github.io/"/>
+  <updated>2014-06-13T20:06:30-04:00</updated>
+  <id>http://avacaflores.github.io/</id>
+  <author>
+    <name><![CDATA[Alfonso Vacaflores]]></name>
+    <email><![CDATA[avacaflores@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[plist en Swift]]></title>
+    <link href="http://avacaflores.github.io/blog/2014/06/12/plist-en-swift/"/>
+    <updated>2014-06-12T07:12:02-04:00</updated>
+    <id>http://avacaflores.github.io/blog/2014/06/12/plist-en-swift</id>
+    <content type="html"><![CDATA[<p>La presentación del nuevo leguaje de programación Swift a despertado a un grupo muy grande programadores y no programadores, todos ansiosos por experimentar con el nuevo juguete.</p>
+
+<p>La primera idea que uno tiene es que al ser un leguaje nuevo debemos limitarnos solamente a sus comandos, funciones, etc, sin embargo en la práctica eso no es posible. Hay una infinidad de librerías en Cocoa que usan clases de Objective-C que son fundamentales para la programación en iOS y OS X, tal es el caso de las librerías necesarias para leer un plist.</p>
+
+<p>El siguiente ejemplo muestra la manera mas elegante que encontré para realizar la tarea de leer un plist el cual esta compuesto por un arreglo de diccionarios.</p>
+
+<h2>El plist</h2>
+
+<p><img src="/images/blog/plist.png">  <br/>
+El plist contiene una estructura básica de un <code>array</code> y n <code>dictionary</code></p>
+
+<h2>Abrir el plist</h2>
+
+<p>Primeramente necesitamos definir la ruta y posteriormente gargar el archivo en memória
+<code>
+let path = NSBundle.mainBundle().pathForResource("List", ofType: "plist")
+let array = NSArray(contentsOfFile: path)
+</code>
+A partir de esto podemos consultar el contenido del <code>array</code> usando <code>println(array)</code> y obtendremos el resultado en la consola</p>
+
+<pre><code>(
+        {
+        Nombre = Hugo;
+        Telefono = 2123268000;
+    },
+        {
+        Nombre = Esteban;
+        Telefono = 2125648765;
+    },
+        {
+        Nombre = Sergio;
+        Telefono = 2127547654;
+    }
+)
+</code></pre>
+
+<p>Hasta ahora todo parece muy facil e intunitivo, sin embargo obtener los valores de cada diccionario individualmente es la parte que necesita de intrucciones especiales</p>
+
+<h2>Iterar el array</h2>
+
+<p>Para realizar esta tarea es necesario realizar el <strong>casting</strong> a <code>AnyObject</code> y luego hacer un nuevo <strong>casting</strong> de cada elemento a <code>NSDictionay</code> de la siguiente manera:
+```
+for user:AnyObject in array {</p>
+
+<p>  let dict:NSDictionary = user as NSDictionary</p>
+
+<p>  println(dict[&ldquo;Nombre&rdquo;])
+  println(dict[&ldquo;Telefono&rdquo;])           <br/>
+}
+```
+A partir de aquí podremos obtener los valores que estan contenidos en cada diccionario dentro del plist.</p>
+]]></content>
+  </entry>
+  
+</feed>

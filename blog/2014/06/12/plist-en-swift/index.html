@@ -5,11 +5,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Categories - Por puro gusto</title>
+	<title>plist en Swift - Por puro gusto</title>
 	<meta name="author" content="Alfonso Vacaflores">
 
 	
-	<meta name="description" content=" Rails [ 2 ] Yaml [ 1 ] Octopress [ 1 ] Ruby [ 1 ] Swift [ 1 ] ">
+	<meta name="description" content="plist en Swift La presentación del nuevo leguaje de programación Swift a despertado a un grupo muy grande programadores y no programadores, todos &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="Por puro gusto" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://avacaflores.github.io/blog/categories/">
+	<link rel="canonical" href="http://avacaflores.github.io/blog/2014/06/12/plist-en-swift/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -118,33 +118,92 @@
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="page">
-    
-    <h1 class="title">Categories</h1>
-    
-    <div class="entry-content"><ul>
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">plist en Swift</h1>
+	<div class="entry-content" itemprop="articleBody"><p>La presentación del nuevo leguaje de programación Swift a despertado a un grupo muy grande programadores y no programadores, todos ansiosos por experimentar con el nuevo juguete.</p>
 
-    <li><a href="/blog/categories/Rails/">Rails</a> [ 2 ]</li>
+<p>La primera idea que uno tiene es que al ser un leguaje nuevo debemos limitarnos solamente a sus comandos, funciones, etc, sin embargo en la práctica eso no es posible. Hay una infinidad de librerías en Cocoa que usan clases de Objective-C que son fundamentales para la programación en iOS y OS X, tal es el caso de las librerías necesarias para leer un plist.</p>
 
-    <li><a href="/blog/categories/YAML/">Yaml</a> [ 1 ]</li>
+<p>El siguiente ejemplo muestra la manera mas elegante que encontré para realizar la tarea de leer un plist el cual esta compuesto por un arreglo de diccionarios.</p>
 
-    <li><a href="/blog/categories/Octopress/">Octopress</a> [ 1 ]</li>
+<h2>El plist</h2>
 
-    <li><a href="/blog/categories/Ruby/">Ruby</a> [ 1 ]</li>
+<p><img src="/images/blog/plist.png">  <br/>
+El plist contiene una estructura básica de un <code>array</code> y n <code>dictionary</code></p>
 
-    <li><a href="/blog/categories/Swift/">Swift</a> [ 1 ]</li>
+<h2>Abrir el plist</h2>
 
-</ul>
+<p>Primeramente necesitamos definir la ruta y posteriormente gargar el archivo en memória</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>let path = NSBundle.mainBundle().pathForResource("List", ofType: "plist")
+</span><span class='line'>let array = NSArray(contentsOfFile: path)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A partir de esto podemos consultar el contenido del <code>array</code> usando <code>println(array)</code> y obtendremos el resultado en la consola</p>
+
+<pre><code>(
+        {
+        Nombre = Hugo;
+        Telefono = 2123268000;
+    },
+        {
+        Nombre = Esteban;
+        Telefono = 2125648765;
+    },
+        {
+        Nombre = Sergio;
+        Telefono = 2127547654;
+    }
+)
+</code></pre>
+
+<p>Hasta ahora todo parece muy facil e intunitivo, sin embargo obtener los valores de cada diccionario individualmente es la parte que necesita de intrucciones especiales</p>
+
+<h2>Iterar el array</h2>
+
+<p>Para realizar esta tarea es necesario realizar el <strong>casting</strong> a <code>AnyObject</code> y luego hacer un nuevo <strong>casting</strong> de cada elemento a <code>NSDictionay</code> de la siguiente manera:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>for user:AnyObject in array {
+</span><span class='line'>  
+</span><span class='line'>  let dict:NSDictionary = user as NSDictionary
+</span><span class='line'>  
+</span><span class='line'>  println(dict["Nombre"])
+</span><span class='line'>  println(dict["Telefono"])               
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<p>A partir de aquí podremos obtener los valores que estan contenidos en cada diccionario dentro del plist.</p>
 </div>
+
 </article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
 
 
 <section id="comment">
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </section>
-
 </div>
 			</div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
@@ -162,8 +221,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://avacaflores.github.io/blog/categories/index.html';
-        var disqus_url = 'http://avacaflores.github.io/blog/categories/index.html';
+        var disqus_identifier = 'http://avacaflores.github.io/blog/2014/06/12/plist-en-swift/';
+        var disqus_url = 'http://avacaflores.github.io/blog/2014/06/12/plist-en-swift/';
         var disqus_script = 'embed.js';
       
     (function () {
