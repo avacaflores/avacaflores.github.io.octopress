@@ -6,6 +6,13 @@ sharing: false
 footer: false
 ---
 
+###Bicho
+
+{% img /images/static/Bicho.png 300 %}  
+- Juego 2D  
+- Desarrollado en Objective-C/Xcode/SpriteKit  
+- Enlace al [AppStore](https://itunes.apple.com/us/app/bicho/id896508584?mt=8)
+
 ###garaje4x4
 {% img /images/static/garaje4x4.png 300 %}  
 - Portal web de presentación de productos desarrollado en Ruby on Rails    
@@ -42,14 +49,13 @@ footer: false
 
 {% img /images/static/SecureHint.png 300 %}  
 - Applicación movil para la gestión de passwords  
-- Desarrollado en Objective-C/Xcope  
+- Desarrollado en Objective-C/Xcode  
 - Enlace al [AppStore](https://itunes.apple.com/us/app/secure-hint/id730187231?mt=8)
 
 ###Sample Code For Sprite Kit  
 {% img /images/static/SampleCode.png 300 %}  
 - Applicación movil que demuestra animaciones 2D basadas en SprikeKit  
-- Desarrollado en Objective-C/Xcope/SpriteKit  
-- Enlace al [AppStore](https://itunes.apple.com/us/app/sample-code-for-sprite-kit/id717483322?mt=8) 
+- Desarrollado en Objective-C/Xcode/SpriteKit  
 
 <hr>
 #Electrónica
