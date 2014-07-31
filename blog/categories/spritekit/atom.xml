@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SpriteKit | Por puro gusto]]></title>
+  <link href="http://avacaflores.github.io/blog/categories/spritekit/atom.xml" rel="self"/>
+  <link href="http://avacaflores.github.io/"/>
+  <updated>2014-07-30T22:08:48-04:00</updated>
+  <id>http://avacaflores.github.io/</id>
+  <author>
+    <name><![CDATA[Alfonso Vacaflores]]></name>
+    <email><![CDATA[avacaflores@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Removiendo SKnode en iOS 8]]></title>
+    <link href="http://avacaflores.github.io/blog/2014/07/30/removiendo-SKnode-en-ios8/"/>
+    <updated>2014-07-30T21:12:02-04:00</updated>
+    <id>http://avacaflores.github.io/blog/2014/07/30/removiendo-SKnode-en-ios8</id>
+    <content type="html"><![CDATA[<p>La nueva versión de Xcode 6 trae muchos cambios entre ellos algunos que mas bien parecerían ser errores, tal es el caso de la función <code>removeFromParent</code> en SpriteKit.</p>
+
+<h2>El problema</h2>
+
+<p>Normalmente en un juego desarrollado en SpriteKit se utiliza el siguiente código para eliminar todos los <strong>SKNode</strong> que estan fuera del <strong>SKScene</strong> o que cumplen determinada condición. El siguiente código es usado por ejemplo en la función <code>didSimulatePhysics</code></p>
+
+<p>```
+[self enumerateChildNodesWithName:@&ldquo;mySprite&rdquo; usingBlock:^(SKNode <em>node, BOOL </em>stop) {</p>
+
+<p>  [node removeFromParent];</p>
+
+<p>}];
+```</p>
+
+<p>Sin embargo, este código que fue usado en varias versiones de iOS no es válido en iOS 8 ya que causa un error cuando es ejecutado. Aparentemente el usar <code>removeFromParenet</code> dentro de un bloque no es un procedimiento valido a partir de la versión de Xcode 6.</p>
+
+<h2>La solución</h2>
+
+<p>Para lograr remover los <strong>SKNode</strong> de un <strong>SKScene</strong> sin utilizar este código tendremos de dilatar el comando hasta que todos los nodos sean enumerados, la propuesta es usar el siguiente código:</p>
+
+<p>```
+NSMutableArray* nodesToRemove = [NSMutableArray array];</p>
+
+<p>[self enumerateChildNodesWithName:@&ldquo;mySprite&rdquo; usingBlock:^(SKNode <em>node, BOOL </em>stop) {</p>
+
+<p>  [nodesToRemove addObject:node];</p>
+
+<p>}];</p>
+
+<p>for (SKNode* node in nodesToRemove){</p>
+
+<p>  [node removeFromParent];
+}
+```</p>
+
+<p>Simplemente guardamos todas las referencias de los nodos a eliminar en un <strong>array</strong> y luego removemos todos los nodos que fueron almacenados.</p>
+
+<p>Esperemos que este <strong>workaround</strong> sea algo temporal y que este comportamiento sea solo un error que será solucionado en versiones futuras de Xcode. La versión en la cual fue utilizado este código es Xcode 6 (Beta 4).</p>
+]]></content>
+  </entry>
+  
+</feed>

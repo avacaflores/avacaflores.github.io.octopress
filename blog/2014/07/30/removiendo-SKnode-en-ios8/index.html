@@ -5,11 +5,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Categories - Por puro gusto</title>
+	<title>Removiendo SKnode en iOS 8 - Por puro gusto</title>
 	<meta name="author" content="Alfonso Vacaflores">
 
 	
-	<meta name="description" content=" Rails [ 2 ] Yaml [ 1 ] Octopress [ 1 ] Ruby [ 1 ] Swift [ 1 ] Objective-c [ 1 ] Spritekit [ 1 ] ">
+	<meta name="description" content="Removiendo SKnode en iOS 8 La nueva versión de Xcode 6 trae muchos cambios entre ellos algunos que mas bien parecerían ser errores, tal es el caso &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="Por puro gusto" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://avacaflores.github.io/blog/categories/">
+	<link rel="canonical" href="http://avacaflores.github.io/blog/2014/07/30/removiendo-SKnode-en-ios8/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -118,37 +118,85 @@
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="page">
-    
-    <h1 class="title">Categories</h1>
-    
-    <div class="entry-content"><ul>
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Removiendo SKnode en iOS 8</h1>
+	<div class="entry-content" itemprop="articleBody"><p>La nueva versión de Xcode 6 trae muchos cambios entre ellos algunos que mas bien parecerían ser errores, tal es el caso de la función <code>removeFromParent</code> en SpriteKit.</p>
 
-    <li><a href="/blog/categories/Rails/">Rails</a> [ 2 ]</li>
+<h2>El problema</h2>
 
-    <li><a href="/blog/categories/YAML/">Yaml</a> [ 1 ]</li>
+<p>Normalmente en un juego desarrollado en SpriteKit se utiliza el siguiente código para eliminar todos los <strong>SKNode</strong> que estan fuera del <strong>SKScene</strong> o que cumplen determinada condición. El siguiente código es usado por ejemplo en la función <code>didSimulatePhysics</code></p>
 
-    <li><a href="/blog/categories/Octopress/">Octopress</a> [ 1 ]</li>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[self enumerateChildNodesWithName:@"mySprite" usingBlock:^(SKNode *node, BOOL *stop) {
+</span><span class='line'>  
+</span><span class='line'>  [node removeFromParent];
+</span><span class='line'>  
+</span><span class='line'>}];</span></code></pre></td></tr></table></div></figure>
 
-    <li><a href="/blog/categories/Ruby/">Ruby</a> [ 1 ]</li>
 
-    <li><a href="/blog/categories/Swift/">Swift</a> [ 1 ]</li>
+<p>Sin embargo, este código que fue usado en varias versiones de iOS no es válido en iOS 8 ya que causa un error cuando es ejecutado. Aparentemente el usar <code>removeFromParenet</code> dentro de un bloque no es un procedimiento valido a partir de la versión de Xcode 6.</p>
 
-    <li><a href="/blog/categories/Objective-C/">Objective-c</a> [ 1 ]</li>
+<h2>La solución</h2>
 
-    <li><a href="/blog/categories/SpriteKit/">Spritekit</a> [ 1 ]</li>
+<p>Para lograr remover los <strong>SKNode</strong> de un <strong>SKScene</strong> sin utilizar este código tendremos de dilatar el comando hasta que todos los nodos sean enumerados, la propuesta es usar el siguiente código:</p>
 
-</ul>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSMutableArray* nodesToRemove = [NSMutableArray array];
+</span><span class='line'>  
+</span><span class='line'>[self enumerateChildNodesWithName:@"mySprite" usingBlock:^(SKNode *node, BOOL *stop) {
+</span><span class='line'>
+</span><span class='line'>  [nodesToRemove addObject:node];
+</span><span class='line'>
+</span><span class='line'>}];
+</span><span class='line'>
+</span><span class='line'>for (SKNode* node in nodesToRemove){
+</span><span class='line'>  
+</span><span class='line'>  [node removeFromParent];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
+
+<p></p>
+
+<p>Simplemente guardamos todas las referencias de los nodos a eliminar en un <strong>array</strong> y luego removemos todos los nodos que fueron almacenados.</p>
+
+<p>Esperemos que este <strong>workaround</strong> sea algo temporal y que este comportamiento sea solo un error que será solucionado en versiones futuras de Xcode. La versión en la cual fue utilizado este código es Xcode 6 (Beta 4).</p>
 </div>
+
 </article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
 
 
 <section id="comment">
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </section>
-
 </div>
 			</div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
@@ -166,8 +214,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://avacaflores.github.io/blog/categories/index.html';
-        var disqus_url = 'http://avacaflores.github.io/blog/categories/index.html';
+        var disqus_identifier = 'http://avacaflores.github.io/blog/2014/07/30/removiendo-SKnode-en-ios8/';
+        var disqus_url = 'http://avacaflores.github.io/blog/2014/07/30/removiendo-SKnode-en-ios8/';
         var disqus_script = 'embed.js';
       
     (function () {

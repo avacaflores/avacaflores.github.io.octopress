@@ -9,7 +9,7 @@
 	<meta name="author" content="Alfonso Vacaflores">
 
 	
-	<meta name="description" content="12 Junio 2014 Swift plist en Swift La presentación del nuevo leguaje de programación Swift a despertado a un grupo muy grande programadores y no &hellip;">
+	<meta name="description" content="30 Julio 2014 Objective-C, SpriteKit Removiendo SKnode en iOS 8 La nueva versión de Xcode 6 trae muchos cambios entre ellos algunos que mas bien &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -120,6 +120,95 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-30T21:12:02-04:00" data-updated="true" itemprop="datePublished">30 Julio 2014</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/objective-c/'>Objective-C</a>, <a class='category' href='/blog/categories/spritekit/'>SpriteKit</a>
+
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2014/07/30/removiendo-SKnode-en-ios8/" itemprop="url">Removiendo SKnode en iOS 8</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>La nueva versión de Xcode 6 trae muchos cambios entre ellos algunos que mas bien parecerían ser errores, tal es el caso de la función <code>removeFromParent</code> en SpriteKit.</p>
+
+<h2>El problema</h2>
+
+<p>Normalmente en un juego desarrollado en SpriteKit se utiliza el siguiente código para eliminar todos los <strong>SKNode</strong> que estan fuera del <strong>SKScene</strong> o que cumplen determinada condición. El siguiente código es usado por ejemplo en la función <code>didSimulatePhysics</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[self enumerateChildNodesWithName:@"mySprite" usingBlock:^(SKNode *node, BOOL *stop) {
+</span><span class='line'>  
+</span><span class='line'>  [node removeFromParent];
+</span><span class='line'>  
+</span><span class='line'>}];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sin embargo, este código que fue usado en varias versiones de iOS no es válido en iOS 8 ya que causa un error cuando es ejecutado. Aparentemente el usar <code>removeFromParenet</code> dentro de un bloque no es un procedimiento valido a partir de la versión de Xcode 6.</p>
+
+<h2>La solución</h2>
+
+<p>Para lograr remover los <strong>SKNode</strong> de un <strong>SKScene</strong> sin utilizar este código tendremos de dilatar el comando hasta que todos los nodos sean enumerados, la propuesta es usar el siguiente código:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSMutableArray* nodesToRemove = [NSMutableArray array];
+</span><span class='line'>  
+</span><span class='line'>[self enumerateChildNodesWithName:@"mySprite" usingBlock:^(SKNode *node, BOOL *stop) {
+</span><span class='line'>
+</span><span class='line'>  [nodesToRemove addObject:node];
+</span><span class='line'>
+</span><span class='line'>}];
+</span><span class='line'>
+</span><span class='line'>for (SKNode* node in nodesToRemove){
+</span><span class='line'>  
+</span><span class='line'>  [node removeFromParent];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Simplemente guardamos todas las referencias de los nodos a eliminar en un <strong>array</strong> y luego removemos todos los nodos que fueron almacenados.</p>
+
+<p>Esperemos que este <strong>workaround</strong> sea algo temporal y que este comportamiento sea solo un error que será solucionado en versiones futuras de Xcode. La versión en la cual fue utilizado este código es Xcode 6 (Beta 4).</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
